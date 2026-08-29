@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dasbor Daftar Tugas Kehidupan - atur tugas, fokus, dan tautan favorit dalam satu tempat.">
+  <title>Life Task Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card card">
+      <div class="hero-content">
+        <p class="eyebrow">LIFE TASK DASHBOARD</p>
+        <div id="clock" class="clock" aria-live="polite">00:00:00</div>
+        <p id="date" class="date">Memuat tanggal...</p>
+        <h1 id="greeting">Good Morning</h1>
+        <p id="greetingName" class="greeting-name">Semangat menjalani hari!</p>
+      </div>
+      <button id="themeToggle" class="icon-button" type="button" aria-label="Ganti mode terang atau gelap" title="Ganti tema">☾</button>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="card focus-card">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">FOCUS TIMER</p>
+            <h2>Pomodoro</h2>
+          </div>
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+
+        <div id="timerDisplay" class="timer-display">25:00</div>
+        <p id="timerStatus" class="muted">Siap membantu kamu fokus.</p>
+
+        <div class="timer-controls">
+          <button id="startTimer" class="primary-button" type="button">Start</button>
+          <button id="stopTimer" class="secondary-button" type="button">Stop</button>
+          <button id="resetTimer" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <div class="timer-setting">
+          <label for="pomodoroMinutes">Durasi fokus (menit)</label>
+          <div class="inline-form">
+            <input id="pomodoroMinutes" type="number" min="1" max="120" value="25">
+            <button id="saveDuration" class="small-button" type="button">Simpan</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card tasks-card">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">TODAY</p>
+            <h2>Tasks <span id="taskCount" class="count-badge">0</span></h2>
+          </div>
+          <select id="taskSort" class="select-input" aria-label="Urutkan tugas">
+            <option value="created">Terbaru</option>
+            <option value="active">Belum selesai</option>
+            <option value="completed">Selesai</option>
+          </select>
+        </div>
+
+        <form id="taskForm" class="add-form">
+          <input id="taskInput" type="text" maxlength="120" placeholder="Add a new task..." autocomplete="off" required>
+          <button class="primary-button" type="submit">Add</button>
+        </form>
+        <p id="taskMessage" class="form-message" aria-live="polite"></p>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        <div id="emptyTasks" class="empty-state">
+          <span>✓</span>
+          <p>Belum ada tugas. Tambahkan satu untuk memulai.</p>
+        </div>
+      </article>
+
+      <article class="card links-card">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">QUICK ACCESS</p>
+            <h2>Quick Links</h2>
+          </div>
+        </div>
+
+        <form id="linkForm" class="link-form">
+          <input id="linkName" type="text" maxlength="30" placeholder="Link name" required>
+          <input id="linkUrl" type="url" placeholder="https://example.com" required>
+          <button class="primary-button" type="submit">Add Link</button>
+        </form>
+        <p id="linkMessage" class="form-message" aria-live="polite"></p>
+        <div id="linkList" class="link-list"></div>
+        <div id="emptyLinks" class="empty-state compact">
+          <p>Belum ada quick link. Tambahkan website favoritmu.</p>
+        </div>
+      </article>
+
+      <article class="card settings-card">
+        <div class="card-heading">
+          <div>
+            <p class="section-label">PERSONALIZE</p>
+            <h2>Pengaturan</h2>
+          </div>
+        </div>
+
+        <label for="nameInput">Nama untuk sapaan</label>
+        <div class="inline-form">
+          <input id="nameInput" type="text" maxlength="30" placeholder="Nama kamu">
+          <button id="saveName" class="small-button" type="button">Simpan</button>
+        </div>
+        <p class="muted small-text">Namamu tersimpan hanya di browser ini.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>Built with HTML • CSS • Vanilla JavaScript</span>
+      <span>Data tersimpan di LocalStorage</span>
+    </footer>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
